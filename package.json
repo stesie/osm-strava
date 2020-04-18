@@ -1,0 +1,16 @@
+{
+  "name": "osm-strava",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.io/stesie/osm-strava",
+  "author": "Stefan Siegl <stesie@brokenpipe.de>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@mapbox/blend": "^2.0.1",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
