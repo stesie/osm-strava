@@ -12,13 +12,13 @@ if (!KEY_PAIR_ID || !SIGNATURE || !POLICY) {
     process.exit(1);
 }
 
-function getCacheFilePath({ x, y, z}) {
+function getCacheFilePath({ x, y, z }) {
     const path = `${process.env.HOME}/.cache/osm-strava/${z}/${x}`;
     fs.mkdirSync(path, { recursive: true });
     return `${path}/${y}.png`;
 }
 
-function getOpenStreetMapUrl({ letter, z, x, y}) {
+function getOpenStreetMapUrl({ letter, z, x, y }) {
     return `https://${letter}.tile.openstreetmap.de/${z}/${x}/${y}.png`;
 }
 
@@ -45,19 +45,19 @@ app.get('/:letter/:z/:x/:y.png', async function (req, res) {
     const [baseImage, stravaOverlay] = await Promise.all([
         fetchOpenStreetMapTile(req.params),
         fetchStravaOverlayTile(req.params),
-    ])
+    ]);
 
-    
-    blend([ baseImage, stravaOverlay ], { reencode: true, compression: 1 }, function(err, data) {
+    blend([baseImage, stravaOverlay], { reencode: true, compression: 1 }, function (err, data) {
         if (err) {
             console.log('gnah', err);
-            res.status(500).send('image processing failed :-(')
+            res.status(500).send('image processing failed :-(');
             return;
         }
-    
-        fs.promises.writeFile(cacheFilePath, data)
+
+        fs.promises
+            .writeFile(cacheFilePath, data)
             .then(() => undefined)
-            .catch(err => {
+            .catch((err) => {
                 console.warn('failed to write cache file', err);
             });
 
@@ -66,5 +66,5 @@ app.get('/:letter/:z/:x/:y.png', async function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log(`osm-strava server running on port ${PORT}.`);
+    console.log(`osm-strava server running on port ${PORT}.`);
 });
