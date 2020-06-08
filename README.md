@@ -10,7 +10,9 @@ In combination with a redirector extension for your browser, like [Redirector fo
 Setup
 -----
 
-Frist, copy your Strava policy, signature, and key-pair-id from your strava.com cookies into your environment variables.
+You will need a strava summit account and node.js installed.
+
+First, copy your Strava policy, signature, and key-pair-id from your strava.com cookies into your environment variables.
 
 ```
 export POLICY=from_strava
@@ -29,6 +31,6 @@ npm start
 
 _Note_: If you are running on Mac OS X Catalina, make sure you have node v12 installed. Mapnik installation will fail with node v14.
 
-Make sure to add a redirector policy to your browser to redirect image-urls from `https://*.tile.openstreetmap.org/*/*/*.png` to `http://localhost:5000/*/*/*/*.png`. You can may want to use a plugin like [Redirector for Firefox](https://addons.mozilla.org/de/firefox/addon/redirector/) or [Redirector for Chrome].
+Make sure to add a redirector policy to your browser to redirect image-urls from `https://*.tile.openstreetmap.org/*/*/*.png` to `http://localhost:5000/*/*/*/*.png`. You may want to use a plugin like [Redirector for Firefox](https://addons.mozilla.org/de/firefox/addon/redirector/) or [Redirector for Chrome].
 
 Finally, fire up komoot and choose the Open Street Map Map Layer in your Komoot Planning App.
