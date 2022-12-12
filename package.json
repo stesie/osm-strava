@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {
     "@mapbox/blend": "^2.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "scripts": {
     "start": "node index.js"
